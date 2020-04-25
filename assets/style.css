@@ -1,10 +1,13 @@
 * {
     text-align: center;
+    background-color: #1E1E1E;
+    color: rgb(181, 230, 29);
+    font-family: 'Share Tech Mono', monospace;
 }
 
-/* div {
-    border: 1px solid black;
-} */
+div {
+    border: 1px solid white;
+}
 .timer {
     font-size: 30px;
     font-weight: 500;
@@ -19,23 +22,19 @@ img {
 h2 {
     padding-top: 60px;
     padding-bottom: 40px;
+    margin: 0px;
 }
 .btn {
     margin-top: 30px;
 }
-.inline {
-    display: inline;
-}
 .mb-2 {
     margin: 8px;
 }
-#inputPassword2 {
-    width: 200px;
-}
-#staticEmail2 {
-    width: 120px;
-    margin-left: 60px;
-}
 li {
     text-align: left;
+}
+.answer-btn {
+    background-color: rgb(242, 151, 102);
+    color: black;
+    display: block;
 }

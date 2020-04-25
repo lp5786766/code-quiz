@@ -7,40 +7,34 @@
     <title>Quiz Scores</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
 
     <h2>Highscores</h2>
+
     <div class="row">
         <div class="col-md-5"></div>
-        <div class="col-md-3">
+        <div class="col-md-7">
             <ol class="initials-list">
                 <li>AB - 22</li>
             </ol>
         </div>
-        <div class="col-md-2"></div>
     </div>
 
-
     <div class="row">
-        <div class="col-md-3"></div>
-
-        <div class="col-md-6">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
             <form class="form-inline">
-                <div class="form-group mb-2">
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2"
-                        value="Save Your Initials:">
-                </div>
                 <div class="form-group mx-sm-3 mb-2">
-                    <input type="password" class="form-control" id="inputPassword2">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Save your initials:</label>
+                    <input type="text" class="form-control">
+                    <button type="submit" class="btn btn-success mb-2">Submit</button>
                 </div>
-                <button type="submit" class="btn btn-success mb-2">Submit</button>
             </form>
         </div>
-
-        <div class="col-md-3"></div>
     </div>
 
     <div class="row">
