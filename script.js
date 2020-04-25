@@ -14,10 +14,12 @@
 
 // Question 1 
 // Possible answers:
-var buttonA = document.createElement("button")
-var buttonB = document.createElement("button")
-var buttonC = document.createElement("button")
-var buttonD = document.createElement("button")
+var timeLeft = document.querySelector("#time-left");
+
+var buttonA = document.createElement("button");
+var buttonB = document.createElement("button");
+var buttonC = document.createElement("button");
+var buttonD = document.createElement("button");
 
 var buttons = [buttonA, buttonB, buttonC, buttonD];
 
@@ -26,9 +28,16 @@ var questionElement = document.querySelector(".question");
 var startBtn = document.getElementById("start-btn");
 
 
+// PHASE ONE
+
 startBtn.addEventListener("click", function () {
     startBtn.style.visibility = "collapse";
+
+    //Start Timer here
+
     questionElement.textContent = "Which of these is not a data type?";
+
+    //right answer A:
     buttonA.textContent = "A. Variable";
     buttonB.textContent = "B. Number";
     buttonC.textContent = "C. Boolean";
@@ -38,5 +47,25 @@ startBtn.addEventListener("click", function () {
         button.setAttribute("class", "btn answer-btn");
         answersDiv.appendChild(button);
     });
+});
+
+// PHASE TWO
+
+buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        questionElement.textContent = "Who invented first computer?";
+
+
+        buttonA.textContent = "A. ";
+        buttonB.textContent = "B. ";
+        //right answer C:
+        buttonC.textContent = "C. ";
+        buttonD.textContent = "D. ";
+
+    });
 
 });
+
+
+
+
