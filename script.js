@@ -1,22 +1,17 @@
 var timeLeft = document.querySelector("#time-left");
-var count = 60;
+var count = 45;
 
 var points = 0;
 var buttonA = document.createElement("button");
-
 var buttonB = document.createElement("button");
-buttonB.setAttribute("class", "B");
 var buttonC = document.createElement("button");
-buttonC.setAttribute("class", "C");
 var buttonD = document.createElement("button");
-buttonD.setAttribute("class", "D");
-
 var buttons = [buttonA, buttonB, buttonC, buttonD];
 
 var answersDiv = document.querySelector("#answers");
 var questionElement = document.querySelector(".question");
 var startBtn = document.getElementById("start-btn");
-
+var submitBtn = document.getElementById("submit-button");
 var saveName = document.querySelector(".hide-form");
 
 // Start button triggers PHASE ONE
@@ -37,36 +32,19 @@ startBtn.addEventListener("click", function () {
 
     questionOne();
 
-
-
-
-
-
-
     buttons.forEach(function (button) {
-        // button.setAttribute("class", "btn answer-btn");
-        buttonA.setAttribute("class", "btn answer-btn");
+        button.setAttribute("class", "btn answer-btn");
         buttonA.setAttribute("id", "A");
+        buttonB.setAttribute("id", "B");
+        buttonC.setAttribute("id", "C");
+        buttonD.setAttribute("id", "D");
         answersDiv.appendChild(button);
+
     });
 });
 
 // First reply triggers PHASE TWO
 
-
-
-// FINAL PHASE
-function gameOver() {
-    buttons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            questionElement.textContent = "Thank you for playing. Enter your initials to save the score!";
-            buttons.forEach(function (button) {
-                button.parentNode.removeChild(button);
-                saveName.setAttribute("class", "row display-form");
-            });
-        });
-    });
-};
 function questionOne() {
     questionElement.textContent = "Which of these is NOT a data type?";
     //right answer A:
@@ -79,16 +57,11 @@ function questionOne() {
         button.addEventListener("click", function () {
             //if statements
             var answerOne = event.target.id
-            console.log(event.target.id)
-            if (answerOne = "A") {
-                alert("Correct!");
+            if (answerOne === "A") {
+                displayCorrect();
             } else {
-                alert("Wrong!");
+                displayWrong();
             }
-
-
-
-            //add points
             questionTwo();
         });
     });
@@ -104,33 +77,132 @@ function questionTwo() {
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
-            var answerTwo = event.target
-            if (answerTwo === "C. Anchor") {
-                alert("Correct!");
+            var answerTwo = event.target.id
+            if (answerTwo === "C") {
+                displayCorrect();
             } else {
-                alert("Wrong!");
+                displayWrong();
             }
-            clear();
             questionThree();
         });
     });
 };
 
 function questionThree() {
-    questionElement.textContent = "who am i?";
-    buttonA.textContent = "A. A ";
-    buttonB.textContent = "B. A";
-    buttonC.textContent = "C. A";
+    questionElement.textContent = "Question three?";
+    buttonA.textContent = "A.  ";
+    buttonB.textContent = "B. ";
+    buttonC.textContent = "C. ";
     //right answer D:
-    buttonD.textContent = "D. A";
+    buttonD.textContent = "D. Def";
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
-            alert("answer3");
+            var answerThree = event.target.id
+            if (answerThree === "D") {
+                displayCorrect();
+            } else {
+                displayWrong();
+            }
+            questionFour();
         });
     });
 };
 
+function questionFour() {
+    questionElement.textContent = "Question Four?";
+    buttonA.textContent = "A. ";
+    //right answer B:
+    buttonB.textContent = "B. wzy";
+    buttonC.textContent = "C. ";
+    buttonD.textContent = "D. ";
 
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            var answerFour = event.target.id
+            if (answerFour === "B") {
+                displayCorrect();
+            } else {
+                displayWrong();
+            }
+            questionFive();
+        });
+    });
+};
+
+function questionFive() {
+    questionElement.textContent = "Question Five?";
+    buttonA.textContent = "A. cactus";
+    buttonB.textContent = "B. lamp";
+    buttonC.textContent = "C. flower";
+    //right answer D:
+    buttonD.textContent = "D. troll";
+
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+
+            var answerFive = event.target.id
+            if (answerFive === "D") {
+                displayCorrect();
+            } else {
+                displayWrong();
+            }
+            gameOver();
+        });
+    });
+};
+
+function displayCorrect() {
+    points++;
+    document.getElementById("display-message").innerHTML = "Correct!";
+    setTimeout(function () {
+        document.getElementById("display-message").innerHTML = " ";
+    }, 1000);
+};
+
+function displayWrong() {
+    document.getElementById("display-message").innerHTML = "Wrong!";
+    setTimeout(function () {
+        document.getElementById("display-message").innerHTML = " ";
+    }, 1000);
+};
+
+var finalScore = count + points;
+
+var nameInput = document.querySelector("#name");
+var scoreList = document.querySelector(".score-list");
+
+// FINAL PHASE
+function gameOver() {
+
+    console.log(finalScore);
+    // ("Your points" + finalScore)
+    questionElement.textContent = "Game Over. Your Score is " + finalScore + ". Enter your name to save the score!";
+    buttons.forEach(function (button) {
+        button.parentNode.removeChild(button);
+        saveName.setAttribute("class", "row display-form");
+    });
+    submitBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        location.href = "scores.html";
+
+        var name = document.querySelector("#name").value;
+        var recorderdScore = name + " - " + finalScore;
+
+        localStorage.setItem("recorededScore", recorderdScore);
+
+        renderLastScore();
+    });
+};
+
+function renderLastScore() {
+    var dispalyedScore = localStorage.getItem("recorededScore");
+    //create li
+    var dispalyedScoreLi = document.createElement("li");
+    //git it text content
+    dispalyedScoreLi.textContent = dispalyedScore;
+    //append 
+
+};
 
 
