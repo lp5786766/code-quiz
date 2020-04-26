@@ -1,21 +1,7 @@
-// Coding Quiz intorductory page with "start the quiz button"
-
-//On click question 1 appears with 4 possib;e answers(buttons)
-
-//if you click the right answer you proceed to the next question and the "correct!" message is dispayed
-//if you click on the wrong answer you proceed to the next question and the "wrong!" message is dispayed
-
-//after all the questions your final schore is dispalyed and you are offered to enter your initials and submit.
-
-//then the higschores are dispalyed (1.AB - 22) with two buttons: go back and clear score.
-
-//during the quiz the timer (75s) is ticking and if you answer wrong 10 seconds are taken off the timer. time stops when you finish.
-
-
-// Question 1 
-// Possible answers:
 var timeLeft = document.querySelector("#time-left");
+var count = 3;
 
+var points = 0;
 var buttonA = document.createElement("button");
 var buttonB = document.createElement("button");
 var buttonC = document.createElement("button");
@@ -27,6 +13,7 @@ var answersDiv = document.querySelector("#answers");
 var questionElement = document.querySelector(".question");
 var startBtn = document.getElementById("start-btn");
 
+var saveName = document.querySelector(".hide-form");
 
 // PHASE ONE
 
@@ -34,6 +21,15 @@ startBtn.addEventListener("click", function () {
     startBtn.style.visibility = "collapse";
 
     //Start Timer here
+    var timer = setInterval(function () {
+        timeLeft.textContent = count;
+        count--;
+        if (count < 0) {
+            clearInterval(timer);
+            timeLeft.textContent = "0";
+            gameOver();
+        }
+    }, 1000);
 
     questionElement.textContent = "Which of these is not a data type?";
 
@@ -65,6 +61,29 @@ buttons.forEach(function (button) {
     });
 
 });
+
+
+
+
+// FINAL PHASE
+function gameOver() {
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            questionElement.textContent = "Thank you for playing. Enter your initials to save the score!";
+
+            buttons.forEach(function (button) {
+                button.parentNode.removeChild(button);
+
+                saveName.setAttribute("class", "row display-form");
+            });
+        });
+    });
+
+}
+
+
+
+
 
 
 
