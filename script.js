@@ -13,35 +13,39 @@ var questionElement = document.querySelector(".question");
 var startBtn = document.getElementById("start-btn");
 var submitBtn = document.getElementById("submit-button");
 var saveName = document.querySelector(".hide-form");
-
+init();
 // Start button triggers PHASE ONE
+startGame();
 
-startBtn.addEventListener("click", function () {
-    startBtn.style.visibility = "collapse";
+function startGame() {
+    startBtn.addEventListener("click", function () {
+        startBtn.style.display = "none";
 
-    //Start Timer here
-    var timer = setInterval(function () {
-        timeLeft.textContent = count;
-        count--;
-        if (count < 0) {
-            clearInterval(timer);
-            timeLeft.textContent = "0";
-            gameOver();
-        }
-    }, 1000);
+        //Start Timer here
+        var timer = setInterval(function () {
+            timeLeft.textContent = count;
+            count--;
+            if (count < 0) {
+                clearInterval(timer);
+                timeLeft.textContent = "0";
+                gameOver();
+            }
+        }, 1000);
 
-    questionOne();
+        questionOne();
 
-    buttons.forEach(function (button) {
-        button.setAttribute("class", "btn answer-btn");
-        buttonA.setAttribute("id", "A");
-        buttonB.setAttribute("id", "B");
-        buttonC.setAttribute("id", "C");
-        buttonD.setAttribute("id", "D");
-        answersDiv.appendChild(button);
+        buttons.forEach(function (button) {
+            button.setAttribute("class", "btn answer-btn");
+            buttonA.setAttribute("id", "A");
+            buttonB.setAttribute("id", "B");
+            buttonC.setAttribute("id", "C");
+            buttonD.setAttribute("id", "D");
+            answersDiv.appendChild(button);
 
+        });
     });
-});
+}
+
 
 // First reply triggers PHASE TWO
 
@@ -167,16 +171,28 @@ function displayWrong() {
     }, 1000);
 };
 
-var finalScore = count + points;
 
-var nameInput = document.querySelector("#name");
-var scoreList = document.querySelector(".score-list");
+
+
+
+var finalScore = count + points;
+var scores = [];
+
+function storeScores() {
+    localStorage.setItem("scores", JSON.stringify(scores));
+}
+function init() {
+    var storedScores = JSON.parse(localStorage.getItem("scores"));
+    if (storedScores !== null) {
+        scores = storedScores;
+    }
+}
+
+
 
 // FINAL PHASE
 function gameOver() {
 
-    console.log(finalScore);
-    // ("Your points" + finalScore)
     questionElement.textContent = "Game Over. Your Score is " + finalScore + ". Enter your name to save the score!";
     buttons.forEach(function (button) {
         button.parentNode.removeChild(button);
@@ -184,25 +200,19 @@ function gameOver() {
     });
     submitBtn.addEventListener("click", function (event) {
         event.preventDefault();
-        location.href = "scores.html";
 
         var name = document.querySelector("#name").value;
-        var recorderdScore = name + " - " + finalScore;
+        var recordedScore = name + " - " + finalScore;
 
-        localStorage.setItem("recorededScore", recorderdScore);
+        scores.push(recordedScore);
+        storeScores()
 
-        renderLastScore();
+        location.href = "scores.html";
+
+
+
     });
 };
 
-function renderLastScore() {
-    var dispalyedScore = localStorage.getItem("recorededScore");
-    //create li
-    var dispalyedScoreLi = document.createElement("li");
-    //git it text content
-    dispalyedScoreLi.textContent = dispalyedScore;
-    //append 
-
-};
 
 
