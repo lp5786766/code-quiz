@@ -14,6 +14,7 @@ var startBtn = document.getElementById("start-btn");
 var submitBtn = document.getElementById("submit-button");
 var saveName = document.querySelector(".hide-form");
 init();
+
 // Start button triggers PHASE ONE
 startGame();
 
@@ -93,12 +94,12 @@ function questionTwo() {
 };
 
 function questionThree() {
-    questionElement.textContent = "Question three?";
-    buttonA.textContent = "A.  ";
-    buttonB.textContent = "B. ";
-    buttonC.textContent = "C. ";
+    questionElement.textContent = "What does forEach function loops over?";
+    buttonA.textContent = "A. Functions";
+    buttonB.textContent = "B. Strings";
+    buttonC.textContent = "C. HTML pages";
     //right answer D:
-    buttonD.textContent = "D. Def";
+    buttonD.textContent = "D. Arrays";
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
@@ -114,12 +115,12 @@ function questionThree() {
 };
 
 function questionFour() {
-    questionElement.textContent = "Question Four?";
-    buttonA.textContent = "A. ";
+    questionElement.textContent = "Which of the following is camel case?";
+    buttonA.textContent = "A. Hello World";
     //right answer B:
-    buttonB.textContent = "B. wzy";
-    buttonC.textContent = "C. ";
-    buttonD.textContent = "D. ";
+    buttonB.textContent = "B. helloWorld";
+    buttonC.textContent = "C. hello-world";
+    buttonD.textContent = "D. hello_world";
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
@@ -135,12 +136,12 @@ function questionFour() {
 };
 
 function questionFive() {
-    questionElement.textContent = "Question Five?";
-    buttonA.textContent = "A. cactus";
-    buttonB.textContent = "B. lamp";
-    buttonC.textContent = "C. flower";
+    questionElement.textContent = "Which random number is Math.random() used to generate? ";
+    buttonA.textContent = "A. Any number";
+    buttonB.textContent = "B. Any number from 1 to 1000";
+    buttonC.textContent = "C. Any number from 0 to 10";
     //right answer D:
-    buttonD.textContent = "D. troll";
+    buttonD.textContent = "D. Any number from 0 to 1";
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
@@ -165,14 +166,13 @@ function displayCorrect() {
 };
 
 function displayWrong() {
+    // count -=5;
+    console.log(count)
     document.getElementById("display-message").innerHTML = "Wrong!";
     setTimeout(function () {
         document.getElementById("display-message").innerHTML = " ";
     }, 1000);
 };
-
-
-
 
 
 var finalScore = count + points;
@@ -203,13 +203,11 @@ function gameOver() {
 
         var name = document.querySelector("#name").value;
         var recordedScore = name + " - " + finalScore;
-
+        init();
         scores.push(recordedScore);
         storeScores()
 
         location.href = "scores.html";
-
-
 
     });
 };

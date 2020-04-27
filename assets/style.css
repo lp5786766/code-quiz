@@ -5,10 +5,6 @@
     font-family: 'Share Tech Mono', monospace;
 }
 
-div {
-    border: 1px solid white;
-}
-
 .timer {
     font-size: 30px;
     font-weight: 500;
@@ -27,12 +23,15 @@ h2 {
     padding-bottom: 40px;
     margin: 0px;
 }
+
 .btn {
     margin-top: 30px;
 }
+
 .mb-2 {
     margin: 8px;
 }
+
 li {
     text-align: left;
 }
@@ -45,9 +44,11 @@ li {
 .hide-form {
     display: none;
 }
+
 .display-form {
     visibility: visible;
 }
+
 #display-message {
     color: rgb(181,206,168);
 }
