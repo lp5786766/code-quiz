@@ -1,11 +1,11 @@
-### code-quiz
+# code-quiz
 
 Coding trivia web-game.
 
 ## Functionality 
 
 ![Gamegif](assets/preview.gif)
-# Start
+### Start
 Click "Start the Quiz" to start the game.
 You will have 45 seconds to answer 5 questions.
 Every time you answer, "Correct!" or "Wrong!" message is displayed.
@@ -14,7 +14,7 @@ After you answer all the questions or time runs out, your final score will be di
 
 A form to record your name will be displayed.
 
-# Highscores
+### Highscores
 
 After you submit your score, you are taken to the Highscores page (which is also accessible form the home page). 
 
