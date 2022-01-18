@@ -1,54 +1,71 @@
 * {
-    text-align: center;
-    background-color: #1E1E1E;
-    color: rgb(181, 230, 29);
-    font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+  background-color: #1e1e1e;
+  color: rgb(181, 230, 29);
+  font-family: 'Share Tech Mono', monospace;
 }
 
 .timer {
-    font-size: 30px;
-    font-weight: 500;
-    display: inline;
+  font-size: 30px;
+  font-weight: 500;
+  display: inline;
+}
+
+h2 {
+    padding-bottom: 30px;
+    margin-bottom: 0;
 }
 
 a {
-    color: #17a2b8;
+  color: #17a2b8;
 }
 
 img {
-    padding: 0px 10px 10px 0px;
+  padding: 0px 10px 10px 0px;
 }
-h2 {
-    padding-top: 60px;
-    padding-bottom: 40px;
-    margin: 0px;
+
+#centered h2 {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  margin: 0px;
 }
 
 .btn {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .mb-2 {
-    margin: 8px;
+  margin: 8px;
 }
 
 li {
-    text-align: left;
+  text-align: left;
 }
 .answer-btn {
-    background-color: rgb(242, 151, 102);
-    color: black;
-    display: block;
+  background-color: rgb(242, 151, 102);
+  color: black;
+  display: block;
 }
 
 .hide-form {
-    display: none;
+  display: none;
 }
 
 .display-form {
-    visibility: visible;
+  visibility: visible;
 }
 
 #display-message {
-    color: rgb(181,206,168);
+  color: rgb(181, 206, 168);
+}
+
+.form-group {
+  padding-left: 30%;
+  padding-right: 30%;
+  margin-bottom: 0;
+}
+
+label {
+    display: inline;
+    padding-bottom: 0px !important;
 }

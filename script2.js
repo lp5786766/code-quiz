@@ -1,7 +1,9 @@
 displayScores();
+
 function displayScores() {
   console.log(scores);
   var scores = JSON.parse(localStorage.getItem('scores'));
+
   if (scores === null) {
     scores = [];
   }
@@ -11,9 +13,9 @@ function displayScores() {
     var clearBtn = document.querySelector('.clear');
     var scoreslist = document.getElementById('score-list');
     var liEl = document.createElement('li');
-    console.log(liEl)
+    console.log(liEl);
     liEl.innerHTML = scores[i].name + ': ' + scores[i].finalScore;
-    console.log(liEl)
+    console.log(liEl);
     scoreslist.append(liEl);
 
     // jquery
@@ -24,7 +26,7 @@ function displayScores() {
 
   clearBtn.addEventListener('click', function () {
     // remove the scores from the page
-    document.getElementById('scores').innerHTML = '';
+    document.getElementById('score-list').innerHTML = '';
 
     // remove from localstorage
     localStorage.removeItem('scores');
