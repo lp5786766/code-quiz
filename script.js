@@ -185,13 +185,7 @@ function gameOver() {
         button.setAttribute("class", "hide-form");
     });
     // display Name Input form
-    saveName.removeAttribute("class", "hide-form");
-
-
-    
-
-
-  
+    saveName.removeAttribute("class", "hide-form");  
 
     // When you enter your name and click "Submit", Name and Score are saved:
     submitBtn.addEventListener("click", function (event) {
