@@ -1,29 +1,32 @@
-var clearBtn = document.querySelector(".clear");
-var scoreList = document.querySelector(".score-list");
+displayScores();
+function displayScores() {
+  console.log(scores);
+  var scores = JSON.parse(localStorage.getItem('scores'));
+  if (scores === null) {
+    scores = [];
+  }
+  // display the scores on the screen
+  for (var i = 0; i < scores.length; i++) {
+    //add to HTML
+    var clearBtn = document.querySelector('.clear');
+    var scoreslist = document.getElementById('score-list');
+    var liEl = document.createElement('li');
+    console.log(liEl)
+    liEl.innerHTML = scores[i].name + ': ' + scores[i].finalScore;
+    console.log(liEl)
+    scoreslist.append(liEl);
 
-var dispalyedScore = localStorage.getItem("scores");
-console.log(dispalyedScore);
-// Render a new li for each todo
+    // jquery
+    // $('#scores').append(
+    //   '<li>' + scores[i].initials + ': ' + scores[i].finalScore + '</li>'
+    // );
+  }
 
+  clearBtn.addEventListener('click', function () {
+    // remove the scores from the page
+    document.getElementById('scores').innerHTML = '';
 
-dispalyedScore.forEach(function (item) {
-    console.log(item);
-    // var dispalyedScoreLi = document.createElement("li");
-    // dispalyedScoreLi.textContent = item;
-    // dispalyedScore.appendChild(dispalyedScoreLi);
-});
-// for (var i = 0; i < scoreList.length; i++) {
-//     var score = dispalyedScore[i];
-
-//     var dispalyedScoreLi = document.createElement("li");
-//     dispalyedScoreLi.textContent = score;
-//     dispalyedScoreLi.setAttribute("data-index", i);
-
-
-// }
-
-
-clearBtn.addEventListener("click", function () {
-
-    dispalyedScoreLi.parentNode.removeChild(dispalyedScoreLi);
-});
+    // remove from localstorage
+    localStorage.removeItem('scores');
+  });
+}
