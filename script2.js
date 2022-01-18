@@ -2,7 +2,7 @@
 
 function displayScores() {
   
-  const scores = JSON.parse(localStorage.getItem('scores'));
+  let scores = JSON.parse(localStorage.getItem('scores'));
   console.log(scores);
   if (scores === null) {
     scores = [];

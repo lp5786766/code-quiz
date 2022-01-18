@@ -22,7 +22,7 @@ function startGame() {
     startBtn.style.display = "none";
 
     //Start Timer here
-    var timer = setInterval(function () {
+    const timer = setInterval(function () {
       timeLeft.textContent = count;
       count--;
       if (count < 0) {
@@ -58,7 +58,7 @@ function questionOne() {
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
       //if statements
-      var answerOne = event.target.id;
+      let answerOne = event.target.id;
       if (answerOne === "A") {
         displayCorrect();
       } else {
@@ -79,7 +79,7 @@ function questionTwo() {
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
-      var answerTwo = event.target.id;
+      let answerTwo = event.target.id;
       if (answerTwo === "C") {
         displayCorrect();
       } else {
@@ -100,7 +100,7 @@ function questionThree() {
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
-      var answerThree = event.target.id;
+      let answerThree = event.target.id;
       if (answerThree === "D") {
         displayCorrect();
       } else {
@@ -121,7 +121,7 @@ function questionFour() {
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
-      var answerFour = event.target.id;
+      let answerFour = event.target.id;
       if (answerFour === "B") {
         displayCorrect();
       } else {
@@ -143,7 +143,7 @@ function questionFive() {
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
-      var answerFive = event.target.id;
+      let answerFive = event.target.id;
       if (answerFive === "D") {
         displayCorrect();
       } else {
@@ -192,11 +192,11 @@ function gameOver() {
         event.preventDefault();
         // check local storage foe any exising scores (parse)
         // if null, then => scoresArr =[]
-        var scores = JSON.parse(localStorage.getItem("scores"));
+        let scores = JSON.parse(localStorage.getItem("scores"));
         if (scores === null) {
             scores = [];
         }
-        var name = document.getElementById("name").value;
+        const name = document.getElementById("name").value;
 
         // Add new data tot he array
         scores.push({
