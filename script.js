@@ -1,18 +1,18 @@
-var timeLeft = document.querySelector("#time-left");
-var count = 45;
+let timeLeft = document.querySelector("#time-left");
+let count = 45;
 
-var points = 0;
-var buttonA = document.createElement("button");
-var buttonB = document.createElement("button");
-var buttonC = document.createElement("button");
-var buttonD = document.createElement("button");
-var buttons = [buttonA, buttonB, buttonC, buttonD];
+let points = 0;
+let buttonA = document.createElement("button");
+let buttonB = document.createElement("button");
+let buttonC = document.createElement("button");
+let buttonD = document.createElement("button");
+let buttons = [buttonA, buttonB, buttonC, buttonD];
 
-var answersDiv = document.querySelector("#answers");
-var questionElement = document.querySelector(".question");
-var startBtn = document.getElementById("start-btn");
-var submitBtn = document.getElementById("submit-button");
-var saveName = document.getElementById("name-form");
+const answersDiv = document.querySelector("#answers");
+const questionElement = document.querySelector(".question");
+const startBtn = document.getElementById("start-btn");
+const submitBtn = document.getElementById("submit-button");
+const saveName = document.getElementById("name-form");
 
 // Start button triggers PHASE ONE
 startGame();

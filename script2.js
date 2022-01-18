@@ -1,21 +1,20 @@
-displayScores();
+
 
 function displayScores() {
+  
+  const scores = JSON.parse(localStorage.getItem('scores'));
   console.log(scores);
-  var scores = JSON.parse(localStorage.getItem('scores'));
-
   if (scores === null) {
     scores = [];
   }
   // display the scores on the screen
   for (var i = 0; i < scores.length; i++) {
     //add to HTML
-    var clearBtn = document.querySelector('.clear');
-    var scoreslist = document.getElementById('score-list');
-    var liEl = document.createElement('li');
+    
+    const scoreslist = document.getElementById('score-list');
+    const liEl = document.createElement('li');
     console.log(liEl);
     liEl.innerHTML = scores[i].name + ': ' + scores[i].finalScore;
-    console.log(liEl);
     scoreslist.append(liEl);
 
     // jquery
@@ -23,7 +22,7 @@ function displayScores() {
     //   '<li>' + scores[i].initials + ': ' + scores[i].finalScore + '</li>'
     // );
   }
-
+  let clearBtn = document.querySelector('.clear');
   clearBtn.addEventListener('click', function () {
     // remove the scores from the page
     document.getElementById('score-list').innerHTML = '';
@@ -32,3 +31,5 @@ function displayScores() {
     localStorage.removeItem('scores');
   });
 }
+
+displayScores();
